@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import statsmodels.api as sm
 import warnings
@@ -5,8 +7,9 @@ from itertools import product
 from statsmodels.stats.diagnostic import acorr_ljungbox
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
-INPUT_FILE = '1-2.sf6_processed_data_with_exog.csv'
-OUTPUT_FILE = '4.sarima_grid_search_results.csv'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-2.sf6_processed_data_with_exog.csv'
+OUTPUT_FILE = PROJECT_ROOT / 'results' / 'tables' / '4.sarima_grid_search_results.csv'
 START_DATE = '2025-10-23'
 END_DATE = '2026-03-10'
 SELECTED_MODEL = '(0,1,1)(1,1,1,7)'

@@ -1,4 +1,5 @@
 import warnings
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -6,9 +7,11 @@ import statsmodels.api as sm
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 
-INPUT_FILE = '1-2.sf6_processed_data_with_exog.csv'
-HOLDOUT_OUTPUT = '10.model_comparison.csv'
-ROLLING_OUTPUT = '10.ultimate_model_comparison.csv'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-2.sf6_processed_data_with_exog.csv'
+TABLE_DIR = PROJECT_ROOT / 'results' / 'tables'
+HOLDOUT_OUTPUT = TABLE_DIR / '10.model_comparison.csv'
+ROLLING_OUTPUT = TABLE_DIR / '10.ultimate_model_comparison.csv'
 
 FORECAST_HORIZON = 7
 STEP_SIZE = 7

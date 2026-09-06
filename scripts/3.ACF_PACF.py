@@ -1,10 +1,13 @@
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
-INPUT_FILE = '1-2.sf6_processed_data_with_exog.csv'
-OUTPUT_FIGURE = '3.acf_pacf_period11.png'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-2.sf6_processed_data_with_exog.csv'
+OUTPUT_FIGURE = PROJECT_ROOT / 'results' / 'figures' / '3.acf_pacf_period11.png'
 START_DATE = '2025-10-23'
 END_DATE = '2026-03-10'
 

@@ -1,12 +1,16 @@
 import pandas as pd
 import statsmodels.api as sm
 import warnings
+from pathlib import Path
+
 warnings.filterwarnings("ignore")
 
-OUTPUT_FILE = '1-2.sf6_processed_data_with_exog.csv'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '9-1.day_data.csv'
+OUTPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-2.sf6_processed_data_with_exog.csv'
 
 # 讀取並前處理資料
-df = pd.read_csv('9-1.day_data.csv')
+df = pd.read_csv(INPUT_FILE)
 df['DateTime'] = pd.to_datetime(df['DateTime']).dt.normalize()
 df = df.groupby('DateTime')['Players'].max().to_frame().sort_index().asfreq('D').ffill()
 

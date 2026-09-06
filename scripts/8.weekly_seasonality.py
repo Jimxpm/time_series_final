@@ -1,11 +1,14 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from statsmodels.tsa.seasonal import STL
 
 
-INPUT_FILE = '9-1.day_data.csv'
-OUTPUT_FIGURE = '8.weekly_seasonality.png'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '9-1.day_data.csv'
+OUTPUT_FIGURE = PROJECT_ROOT / 'results' / 'figures' / '8.weekly_seasonality.png'
 CALM_START = '2025-10-23'
 CALM_END = '2026-03-10'
 ZOOM_START = '2025-11-03'

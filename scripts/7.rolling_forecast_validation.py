@@ -1,4 +1,5 @@
 import warnings
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,9 +9,10 @@ from sklearn.metrics import mean_absolute_percentage_error, mean_squared_error
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 
-INPUT_FILE = '1-1.sf6_processed_data_with_exog.csv'
-OUTPUT_CSV = '7.rolling_52folds_results.csv'
-OUTPUT_FIGURE = '7.mega_52folds_focused_validation.png'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-1.sf6_processed_data_with_exog.csv'
+OUTPUT_CSV = PROJECT_ROOT / 'results' / 'tables' / '7.rolling_52folds_results.csv'
+OUTPUT_FIGURE = PROJECT_ROOT / 'results' / 'figures' / '7.mega_52folds_focused_validation.png'
 BACKTEST_END = '2026-05-18'
 MODEL_ORDER = (0, 1, 1)
 SEASONAL_ORDER = (1, 1, 1, 7)

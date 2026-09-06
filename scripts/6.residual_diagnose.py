@@ -1,4 +1,5 @@
 import warnings
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,9 +13,11 @@ from sklearn.metrics import (
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 
-INPUT_FILE = '1-1.sf6_processed_data_with_exog.csv'
-RESIDUAL_FIGURE = '6.residual_diagnostics_4panel.png'
-FORECAST_FIGURE = '6.forecast_performance.png'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-1.sf6_processed_data_with_exog.csv'
+FIGURE_DIR = PROJECT_ROOT / 'results' / 'figures'
+RESIDUAL_FIGURE = FIGURE_DIR / '6.residual_diagnostics_4panel.png'
+FORECAST_FIGURE = FIGURE_DIR / '6.forecast_performance.png'
 MODEL_ORDER = (0, 1, 1)
 SEASONAL_ORDER = (1, 1, 1, 7)
 TRAIN_END = '2026-05-04'

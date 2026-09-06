@@ -1,8 +1,11 @@
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
-INPUT_FILE = '1-2.sf6_processed_data_with_exog.csv'
-OUTPUT_FIGURE = '2.calm_periods_datadriven.png'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-2.sf6_processed_data_with_exog.csv'
+OUTPUT_FIGURE = PROJECT_ROOT / 'results' / 'figures' / '2.calm_periods_datadriven.png'
 MIN_DAYS = 30
 TOP_N = 3
 

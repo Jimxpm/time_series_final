@@ -1,4 +1,5 @@
 import warnings
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6,7 +7,9 @@ import statsmodels.api as sm
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 
-INPUT_FILE = '1-3.sf6_processed_data_with_exog.csv'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PROJECT_ROOT / 'data' / 'processed' / '1-3.sf6_processed_data_with_exog.csv'
+FIGURE_DIR = PROJECT_ROOT / 'results' / 'figures'
 MODEL_ORDER = (0, 1, 1)
 SEASONAL_ORDER = (1, 1, 1, 7)
 HISTORY_DAYS = 30
@@ -18,7 +21,7 @@ SCENARIOS = [
         'test_start': '2026-04-05',
         'test_end': '2026-04-11',
         'event_date': None,
-        'output': '5.forecast_calm_period.png',
+        'output': FIGURE_DIR / '5.forecast_calm_period.png',
     },
     {
         'name': 'Ingrid DLC Period',
@@ -26,7 +29,7 @@ SCENARIOS = [
         'test_start': '2026-05-25',
         'test_end': '2026-05-31',
         'event_date': '2026-05-28',
-        'output': '5.forecast_ingrid_dlc.png',
+        'output': FIGURE_DIR / '5.forecast_ingrid_dlc.png',
     },
 ]
 
