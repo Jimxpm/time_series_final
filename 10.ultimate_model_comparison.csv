@@ -1,0 +1,4 @@
+Model,AICc (Full Data),Avg Rolling RMSE,Avg Rolling MAE
+"Baseline: SARIMA(0,1,1)x(1,1,1)_7",21195.5,4510.69,3524.67
+"SARIMAX 1: (0,1,1)x(1,1,1)_7",20785.4,3789.51,3186.7
+"SARIMAX 2: (2,1,0)x(1,1,0)_7",21112.6,4595.15,3922.43
